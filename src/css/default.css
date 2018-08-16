@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*::before {
+    box-sizing: border-box;
+}
+
+*::after {
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input {
+    font: inherit;
+}
+
+body {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* layout */
+
+.page {
+    display: flex;
+    height: 100vh;
+}
+
+.page > aside {
+    width: 200px;
+}
+
+.page > main {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+
+/* aside */
+
+.page > aside {
+    display: flex;
+    flex-direction: column;
+}
+
+.newSong {
+    text-decoration: center;
+    padding: 10px;
+}
+
+.newSong.active {
+    background: #b8b8b8;
+}
+
+#songList-container {
+    flex-grow: 1;
+}
+
+.songList {
+    text-align: left;
+    border-top: 1px solid #999;
+}
+
+.songList > li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.songList > li.active {
+    background: #b8b8b8;
+}
+
+.uploadArea {}
+
+.draggable {
+    text-align: center;
+    padding: 20px;
+    border-radius: 4px;
+    border: 2px dotted #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    flex-direction: column;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+
+/* main */
+
+.page > main {
+    background: #b8b8b8;
+}
+
+.form {
+    font-size: 14px;
+}
+
+.form > .row {
+    margin: 20px 0;
+    display: flex;
+}
+
+.form > .row > label {
+    width: 4em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.form > .row.actions {
+    margin-left: calc(4em + 5px);
+}
+
+.form input[type=text] {
+    padding: 3px 8px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #b8b8b8;
+    height: 30px;
+}
+
+.form input[type="text"]:focus {
+    outline: none;
+    border-color: #4b94fc;
+}
+
+.form input[type=button], .form input[type=submit], .form button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    height: 30px;
+    padding-left: 10px;
+    background-color: #15222a;
+    color: #fff;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+.form button:hover {
+    background-color: #ddd;
+    color: #000;
+}
+
+.page > main {
+    padding-top: 20px;
+}
+
+.page > main > .form {}
