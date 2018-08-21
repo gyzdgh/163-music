@@ -41,7 +41,7 @@
                         var response = JSON.parse(info.response);
                         var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key);
                         // 每个文件上传成功后,处理相关的事情
-                        window.eventHub.emit('upload',{
+                        window.eventHub.emit('new',{
                             url: sourceLink,
                             name: response.key
                         })

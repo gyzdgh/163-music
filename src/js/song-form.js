@@ -37,9 +37,9 @@
                 html = html.replace(`__${string}__`, data[string] || '')
             })
             $(this.el).html(html)
-            if(data.id){
+            if (data.id) {
                 $(this.el).prepend('<h1>编辑歌曲</h1>')
-            }else{
+            } else {
                 $(this.el).prepend('<h1>新建歌曲</h1>')
             }
         },
@@ -73,24 +73,25 @@
             this.model = model
             this.view.render(this.model.data)
             this.bindEvents()
-            //上传歌曲
-            window.eventHub.on('upload', (data) => {
-                this.model.data = data
-                this.view.render(this.model.data)
-            })
             //选择歌曲
-            window.eventHub.on('select',(data)=>{
+            window.eventHub.on('select', (data) => {
                 this.model.data = data
                 this.view.render(this.model.data)
             })
-            window.eventHub.on('new',()=>{
-                this.model.data = {
-                    name: '', url: '', singer: '', id: ''
+            //新建歌曲
+            window.eventHub.on('new', (data) => {
+                if (this.model.data.id) {
+                    this.model.data = {
+                        name: '', url: '', singer: '', id: ''
+                    }
+                }else{
+                    Object.assign(this.model.data, data)
                 }
                 this.view.render(this.model.data)
             })
         },
         bindEvents() {
+            //提交表单歌曲信息
             this.view.$el.on('submit', 'form', (e) => {
                 e.preventDefault()
                 let needs = 'name singer url'.split(' ')

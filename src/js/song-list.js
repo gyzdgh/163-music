@@ -71,18 +71,18 @@
                         break
                     }
                 }
+                //深拷贝
                 window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
             })
         },
         //绑定命名空间
         bindEventHub() {
-            window.eventHub.on('upload', () => {
-                this.view.clearActive()
-            })
+            //创建歌曲
             window.eventHub.on('create', (songData) => {
                 this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
             })
+            //新建歌曲
             window.eventHub.on('new',()=>{
                 this.view.clearActive()
             })
