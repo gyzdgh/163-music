@@ -1,6 +1,7 @@
 {
     let view = {
         el: '.page > main',
+        //初始化
         init() {
             this.$el = $(this.el)
         },
@@ -46,6 +47,7 @@
         data: {
             name: '', singer: '', url: '', id: ''
         },
+        //创建歌曲
         create(data) {
             var Song = AV.Object.extend('Song');
             var song = new Song();

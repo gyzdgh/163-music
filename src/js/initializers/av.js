@@ -1,3 +1,4 @@
+//初始化数据库
 var APP_ID = 'OLE1sN9FMRyCmNuMhfxw9wbC-gzGzoHsz';
 var APP_KEY = 'usxMwMoSm8tW69MI33NNhWJn';
 

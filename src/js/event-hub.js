@@ -1,3 +1,4 @@
+//命名空间
 window.eventHub = {
     events: {
 

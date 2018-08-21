@@ -5,50 +5,77 @@
             <ul class="songList"> 
             </ul>
         `,
-        render(data){
+        render(data) {
             let $el = $(this.el)
             $el.html(this.template)
-            let {songs} = data
-            let liList = songs.map((song)=> $('<li></li>').text(song.name))          
+            let { songs } = data
+            let liList = songs.map((song) => $('<li></li>').text(song.name).attr('data-song-id', song.id))
             $el.find('ul').empty()
-            liList.map((domLi)=>{
-                $el.find('ul').append(domLi) 
+            liList.map((domLi) => {
+                $el.find('ul').append(domLi)
             })
         },
-        clearActive(){
+        //激活点击列表
+        activeItme(li) {
+            let $li = $(li)
+            $li.addClass('active')
+                .siblings('.active').removeClass('active')
+        },
+        clearActive() {
             $(this.el).find('.active').removeClass('active')
         }
     }
     let model = {
         data: {
-            songs: [ ]
+            songs: []
         },
-        find(){
+        //获取歌曲
+        find() {
             var query = new AV.Query('Song');
-            return query.find().then((songs)=>{
-                this.data.songs = songs.map((song)=>{
-                    return {id: song.id, ...song.attributes}
+            return query.find().then((songs) => {
+                this.data.songs = songs.map((song) => {
+                    //返回歌曲的每一项
+                    return { id: song.id, ...song.attributes }
                 })
                 return songs
             })
         }
     }
     let controller = {
-        init(view,model){
+        init(view, model) {
             this.view = view
             this.model = model
             this.view.render(this.model.data)
-            window.eventHub.on('upload', ()=> {
-                this.view.clearActive() 
-            })
-            window.eventHub.on('create',(songData)=>{
-                this.model.data.songs.push(songData)
+            this.bindEvents()
+            this.getAllSongs()
+
+
+        },
+        //获取歌曲列表
+        getAllSongs() {
+            return this.model.find().then(() => {
                 this.view.render(this.model.data)
             })
-            this.model.find().then(()=>{
+        },
+        //绑定激活列表事件
+        bindEvents() {
+            $(this.view.el).on('click', 'li', (e) => {
+                //激活当前点击列表
+                this.view.activeItme(e.currentTarget)
+                let songId = e.currentTarget.getAttribute('data-song-id')
+                window.eventHub.emit('select', {id: songId})
+            })
+        },
+        //绑定命名空间
+        bindEventHub() {
+            window.eventHub.on('upload', () => {
+                this.view.clearActive()
+            })
+            window.eventHub.on('create', (songData) => {
+                this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
             })
         }
     }
-    controller.init(view,model)
+    controller.init(view, model)
 }
