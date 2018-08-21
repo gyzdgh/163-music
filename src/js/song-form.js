@@ -54,7 +54,7 @@
             song.set('url', data.url);
             return song.save().then((newSong) => {
                 let { id, attributes } = newSong
-                Object.assign(then.data, { id, ...attributes })
+                Object.assign(this.data, { id, ...attributes })
             }, (error) => {
                 console.error(error)
             });
