@@ -8,18 +8,16 @@
         render(data) {
             let $el = $(this.el)
             $el.html(this.template)
-            let { songs } = data
-            let liList = songs.map((song) => $('<li></li>').text(song.name).attr('data-song-id', song.id))
+            let { songs, selectSongId } = data
+            let liList = songs.map((song) => {
+                let $li = $('<li></li>').text(song.name).attr('data-song-id', song.id)
+                if (song.id === selectSongId) { $li.addClass('active') }
+                return $li   
+            }) 
             $el.find('ul').empty()
             liList.map((domLi) => {
                 $el.find('ul').append(domLi)
             })
-        },
-        //激活点击列表
-        activeItme(li) {
-            let $li = $(li)
-            $li.addClass('active')
-                .siblings('.active').removeClass('active')
         },
         clearActive() {
             $(this.el).find('.active').removeClass('active')
@@ -27,7 +25,8 @@
     }
     let model = {
         data: {
-            songs: []
+            songs: [],
+            selectSongId: undefined,
         },
         //获取歌曲
         find() {
@@ -63,10 +62,12 @@
                 this.view.activeItme(e.currentTarget)
                 //通过 ID 找到每一项
                 let songId = e.currentTarget.getAttribute('data-song-id')
+                this.model.data.selectSongId = songId
+                this.view.render(this.model.data)
                 let data
                 let songs = this.model.data.songs
-                for(let i=0;i<songs.length;i++){
-                    if(songs[i].id === songId){
+                for (let i = 0; i < songs.length; i++) {
+                    if (songs[i].id === songId) {
                         data = songs[i]
                         break
                     }
@@ -83,14 +84,14 @@
                 this.view.render(this.model.data)
             })
             //新建歌曲
-            window.eventHub.on('new',()=>{
+            window.eventHub.on('new', () => {
                 this.view.clearActive()
             })
             //上传歌曲
-            window.eventHub.on('update',(song)=>{
+            window.eventHub.on('update', (song) => {
                 let songs = this.model.data.songs
-                for(let i=0;i<songs.length;i++){
-                    if(songs[i].id === song.id){
+                for (let i = 0; i < songs.length; i++) {
+                    if (songs[i].id === song.id) {
                         Object.assign(songs[i], song)
                     }
                 }
