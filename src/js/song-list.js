@@ -62,8 +62,17 @@
             $(this.view.el).on('click', 'li', (e) => {
                 //激活当前点击列表
                 this.view.activeItme(e.currentTarget)
+                //通过 ID 找到每一项
                 let songId = e.currentTarget.getAttribute('data-song-id')
-                window.eventHub.emit('select', {id: songId})
+                let data
+                let songs = this.model.data.songs
+                for(let i=0;i<songs.length;i++){
+                    if(songs[i].id === songId){
+                        data = songs[i]
+                        break
+                    }
+                }
+                window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
             })
         },
         //绑定命名空间

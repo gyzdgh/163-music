@@ -69,7 +69,13 @@
             this.model = model
             this.view.render(this.model.data)
             this.bindEvents()
+            //上传歌曲
             window.eventHub.on('upload', (data) => {
+                this.model.data = data
+                this.view.render(this.model.data)
+            })
+            //选择歌曲
+            window.eventHub.on('select',(data)=>{
                 this.model.data = data
                 this.view.render(this.model.data)
             })
