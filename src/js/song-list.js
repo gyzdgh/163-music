@@ -58,8 +58,6 @@
         //绑定激活列表事件
         bindEvents() {
             $(this.view.el).on('click', 'li', (e) => {
-                //激活当前点击列表
-                this.view.activeItme(e.currentTarget)
                 //通过 ID 找到每一项
                 let songId = e.currentTarget.getAttribute('data-song-id')
                 this.model.data.selectSongId = songId

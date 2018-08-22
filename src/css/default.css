@@ -38,34 +38,49 @@ body {
 
 .page {
     display: flex;
-    height: 100vh;
+    flex-direction: column;
+    width: 1002px;
+    height: 670px;
+    margin:20px auto;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow:0 0 8px rgba(0,0,0,0.5);
 }
 
-.page > aside {
-    width: 200px;
+.page > section.topbar {
+    background: #A83828;
+    padding: 17px 15px;
 }
 
-.page > main {
-    flex-grow: 1;
-    padding-left: 20px;
+.page > section.topbar .logo>svg {
+    width: 142px;
+    height: 25px;
+    vertical-align: top;
 }
 
+.page > .page-nav{
+    display: flex;
+    height: 100%;
+}
 
 /* aside */
 
-.page > aside {
+.page > .page-nav > aside {
     display: flex;
     flex-direction: column;
+    width: 200px;
+    background: #D2D0D0;
+    border-right: 2px solid #C4C1C0;
 }
 
 .newSong {
     text-align: center;
     padding: 10px;
-    cursor: pointer;
 }
 
 .newSong.active {
-    background: #b8b8b8;
+    background: #C4C1C0;
+    border-left: 4px solid #A83828;
 }
 
 #songList-container {
@@ -74,26 +89,23 @@ body {
 
 .songList {
     text-align: left;
-    border-top: 1px solid #999;
 }
 
 .songList > li {
-    border-bottom: 1px solid #ddd;
     padding: 10px;
-    cursor: pointer;
 }
 
 .songList > li.active {
-    background: #b8b8b8;
+    background: #C4C1C0;
+    border-left: 4px solid #A83828;
 }
 
 .uploadArea {}
 
 .draggable {
     text-align: center;
-    padding: 20px;
-    border-radius: 4px;
-    border: 2px dotted #ddd;
+    padding: 15px;
+    border-top: 1px solid #b8b8b8;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,14 +114,17 @@ body {
 }
 
 .clickable {
+    padding:10px;
     cursor: pointer;
 }
 
 
 /* main */
 
-.page > main {
-    background: #b8b8b8;
+.page > .page-nav > main {
+    flex-grow: 1;
+    padding-left: 30px;
+    padding-top: 20px;
 }
 
 .form {
@@ -151,20 +166,15 @@ body {
     cursor: pointer;
     outline: none;
     height: 30px;
-    padding-left: 10px;
-    background-color: #15222a;
-    color: #fff;
-    padding-right: 10px;
+    padding-left: 15px;
+    background-color: #ddd;
+    color: #15222a;
+    padding-right: 15px;
     border-radius: 5px;
 }
 
 .form button:hover {
-    background-color: #ddd;
-    color: #000;
+    background-color: #D23E39;
+    color: #fff;
 }
 
-.page > main {
-    padding-top: 20px;
-}
-
-.page > main > .form {}

@@ -1,6 +1,6 @@
 {
     let view = {
-        el: '.page > main',
+        el: '.page > .page-nav > main',
         //初始化
         init() {
             this.$el = $(this.el)
