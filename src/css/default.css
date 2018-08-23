@@ -187,7 +187,6 @@ body {
     color: #fff;
 }
 
-
 /* loading */
 
 .loading {
@@ -209,7 +208,7 @@ body {
     position: absolute;
     width: 0;
     height: 0;
-    background: #A83828;
+    background: #D23E39;
     border-radius: 50px;
     top: 0;
     left: 0;
