@@ -80,7 +80,7 @@ body {
 
 .newSong.active {
     background: #C4C1C0;
-    border-left: 4px solid #A83828;
+    color:#A83828;
 }
 
 #songList-container {
@@ -127,6 +127,13 @@ body {
     padding-top: 20px;
 }
 
+.main-nav{
+    border-radius: 10px;
+    border:2px dotted #ddd;
+    width:350px;
+    margin:120px auto;
+    padding: 30px;
+}
 .form {
     font-size: 14px;
 }
@@ -158,7 +165,7 @@ body {
 
 .form input[type="text"]:focus {
     outline: none;
-    border-color: #4b94fc;
+    border-color: #A83828;
 }
 
 .form input[type=button], .form input[type=submit], .form button {
