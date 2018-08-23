@@ -41,10 +41,10 @@ body {
     flex-direction: column;
     width: 1002px;
     height: 670px;
-    margin:20px auto;
+    margin: 20px auto;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow:0 0 8px rgba(0,0,0,0.5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 .page > section.topbar {
@@ -58,10 +58,11 @@ body {
     vertical-align: top;
 }
 
-.page > .page-nav{
+.page > .page-nav {
     display: flex;
     height: 100%;
 }
+
 
 /* aside */
 
@@ -80,7 +81,7 @@ body {
 
 .newSong.active {
     background: #C4C1C0;
-    color:#A83828;
+    color: #A83828;
 }
 
 #songList-container {
@@ -114,7 +115,7 @@ body {
 }
 
 .clickable {
-    padding:10px;
+    padding: 10px;
     cursor: pointer;
 }
 
@@ -127,13 +128,14 @@ body {
     padding-top: 20px;
 }
 
-.main-nav{
+.main-nav {
     border-radius: 10px;
-    border:2px dotted #ddd;
-    width:350px;
-    margin:120px auto;
+    border: 2px dotted #ddd;
+    width: 350px;
+    margin: 120px auto;
     padding: 30px;
 }
+
 .form {
     font-size: 14px;
 }
@@ -185,3 +187,51 @@ body {
     color: #fff;
 }
 
+
+/* loading */
+
+.loading {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+.loading.active{
+    visibility: visible;
+}
+
+.loading::before, .loading::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: #A83828;
+    border-radius: 50px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    animation: loading 1.5s linear infinite;
+}
+
+.loading::after {
+    animation-delay: 0.75s;
+}
+
+@keyframes loading {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 1;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}

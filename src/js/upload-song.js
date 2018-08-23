@@ -31,11 +31,14 @@
                     },
                     'BeforeUpload': function (up, file) {
                         // 每个文件上传前,处理相关的事情
+                        window.eventHub.emit('beforeUpload')
                     },
                     'UploadProgress': function (up, file) {
                         // 每个文件上传时,处理相关的事情
                     },
                     'FileUploaded': function (up, file, info) {
+                        //文件上传成功后调用 FileUploaded
+                        window.eventHub.emit('afterUpload')
                         //获取文件的外链
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);
