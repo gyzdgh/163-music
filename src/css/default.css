@@ -132,7 +132,7 @@ body {
     border-radius: 10px;
     border: 2px dotted #ddd;
     width: 350px;
-    margin: 100px auto;
+    margin: 60px auto;
     padding: 30px;
 }
 
@@ -187,6 +187,22 @@ body {
     color: #fff;
 }
 
+textarea {
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+    height: 30px;
+    padding:5px 8px;
+    width:166px;
+    transition: 0.3s;
+}
+
+textarea:focus {
+    outline-style: none;
+    border-color: #A83828;
+    height: 5em;
+    transition: 0.5s
+}
+
 /* loading */
 
 .loading {
@@ -199,7 +215,8 @@ body {
     z-index: 1;
     background: rgba(0, 0, 0, 0.2);
 }
-.loading.active{
+
+.loading.active {
     visibility: visible;
 }
 
