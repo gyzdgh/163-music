@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.playlistForm-wrapper{
+    border-radius: 10px;
+    border: 2px dotted #ddd;
+    width: 350px;
+    margin: 100px auto;
+    padding: 30px;
+}
+
+form {
+    font-size: 15px;
+}
+
+form > .row {
+    margin: 20px 0;
+    display: flex;
+}
+
+form > .row > label {
+    width: 4em;
+}
+
+
+form input[type=text] {
+    padding: 3px 8px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #b8b8b8;
+    height: 20px;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #A83828;
+}
+
+form button{
+    border: none;
+    cursor: pointer;
+    outline: none;
+    height: 30px;
+    padding-left: 15px;
+    background-color: #ddd;
+    color: #15222a;
+    padding-right: 15px;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #D23E39;
+    color: #fff;
+}
+
+textarea {
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+    width:330px;
+    height: 5em;
+    padding:5px 8px;
+    transition: 0.3s;
+}
+
+textarea:focus {
+    outline-style: none;
+    border-color: #A83828;
+    height: 160px;
+    width:330px;
+    transition: 0.5s
+}

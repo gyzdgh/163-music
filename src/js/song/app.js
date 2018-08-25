@@ -14,7 +14,6 @@
                 audio.onended = () => { window.eventHub.emit('songEnd') }
                 //歌曲播放时间
                 audio.ontimeupdate = () => { this.showLyric(audio.currentTime) }
-
             }
             //光盘转动
             if (status === 'playing') {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/playlists.css">
+    <title>歌单管理页面</title>
+</head>
+
+<body>
+    <div class="playlistForm-wrapper">
+        <h1>创建歌单</h1>
+        <form class="playlistForm">
+            <div class="row">
+                <label>歌单名
+                    <input type="text" name="name">
+                </label>
+            </div>
+            <div class="row">
+                <label>简介
+                    <textarea name="summary"></textarea>
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <button type="submit">创建</button>
+                </label>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+    <script src="./js/initializers/av.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./js/admin/event-hub.js"></script>
+</body>
+
+</html>
